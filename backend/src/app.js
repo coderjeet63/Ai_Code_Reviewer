@@ -8,7 +8,7 @@ const aiRoutes = require("./routes/ai.routes");
 
 // CORS middleware – allow frontend at 5173 to connect
 app.use(cors({
-  origin: "http://localhost:5173", // explicitly allow your frontend's origin
+  origin: "https://ai-code-reviewer-frontend-ewbg.onrender.com", // explicitly allow your frontend's origin
   methods: ["GET", "POST"],
   credentials: true
 }));

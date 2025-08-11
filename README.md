@@ -11,8 +11,8 @@ It uses **Natural Language Processing (NLP)** and AI models to provide human-lik
 - **Frontend:** React.js, Tailwind CSS, Axios
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (Mongoose ODM)
-- **AI/NLP:** OpenAI API / Hugging Face Transformers
-- **Deployment:** Vercel (Frontend) + Render/Railway (Backend)
+- **AI/NLP:** OpenAI API
+- **Deployment:** Render/Railway (Frontend / Backend)
 
 ---
 
@@ -39,4 +39,5 @@ npm install
 
 cd ../frontend
 npm install
+
 

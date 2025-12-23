@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # --- Backend (Jo pehle se tha) ---
+  api:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://db:27017/ai_reviewer
+    depends_on:
+      - db
+
+  # --- Database (Jo pehle se tha) ---
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  # --- NEW: Frontend Service ---
+  client:
+    build: ./frontend       # Recipe yahan dhoondo
+    ports:
+      - "3001:3000"         # IMP: Bahar 3001 dikhao, andar 3000 chal raha hai
+                            # Kyunki 3000 already backend use kar raha hai!
+    stdin_open: true        # React ko band hone se rokne ke liye
+    tty: true               # Terminal access ke liye
+    depends_on:
+      - api                 # Backend start hone ka wait karo
+
+volumes:
+  mongo-data:

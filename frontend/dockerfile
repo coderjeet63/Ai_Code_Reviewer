@@ -1,0 +1,21 @@
+# 1. Base Image (Same as backend)
+FROM node:18-alpine
+
+# 2. Workspace
+WORKDIR /app
+
+# 3. Ingredients (Dependencies)
+COPY package.json .
+RUN npm install
+
+# 4. Copy Code
+COPY . .
+
+# 5. The Door (React usually runs on 3000 or 5173 for Vite)
+# Check your package.json. If using Vite, it's 5173. If Create-React-App, it's 3000.
+# Let's assume standard React (3000) for now.
+EXPOSE 5173
+
+# 6. Start the Server
+# Important: Check your package.json scripts. Usually it is "start" or "dev".
+CMD ["npm", "run", "dev"]
